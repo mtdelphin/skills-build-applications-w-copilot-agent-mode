@@ -1,9 +1,11 @@
 from rest_framework import serializers
-from .models import User, Team, Activity, Leaderboard, Workout
+from django.contrib.auth import get_user_model
+from .models import Team, Activity, Leaderboard, Workout
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ['id', 'username', 'email']
 
 class TeamSerializer(serializers.ModelSerializer):

@@ -1,9 +1,11 @@
 from rest_framework import viewsets
-from .models import User, Team, Activity, Leaderboard, Workout
+from django.contrib.auth import get_user_model
+from .models import Team, Activity, Leaderboard, Workout
 from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
 
+
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 
 class TeamViewSet(viewsets.ModelViewSet):

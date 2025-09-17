@@ -1,8 +1,9 @@
 from django.test import TestCase
-from .models import User, Team, Activity, Leaderboard, Workout
+from django.contrib.auth import get_user_model
+from .models import Team, Activity, Leaderboard, Workout
 
-class UserModelTest(TestCase):
     def test_create_user(self):
+        User = get_user_model()
         user = User.objects.create(username='testuser', email='test@example.com')
         self.assertEqual(user.username, 'testuser')
         self.assertEqual(user.email, 'test@example.com')
